@@ -2,15 +2,19 @@
     text-align: center;    
 }
 
+
+
 .container {
     margin: 0 auto;
+    /* 4x4 grid */
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 25% 25% 25% 25%;
     max-width: 400px;
+    
 }
 
-.board {
+.tile {
     background-color: beige;    
     min-width: 100px;
     min-height: 100px;
@@ -20,6 +24,14 @@
     font-size: 50px;
     cursor: pointer;
     border: 1px solid #2c3e50;
+}
+
+.playerOne {
+    color: red;
+}
+
+.playerTwo {
+    color: black;
 }
 
 .display {

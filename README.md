@@ -18,10 +18,11 @@ Tech stack = HTML5, CSS, Javascript
 - Turn switch display
 - Display win/loss/draw
 - Piece color change by turn
+- Scorekeeping
 
 ## Stretch Goals
 - Authentic gameboard appearance
-- music
-- score 
+- Music
+- Styled text and background
 
 
