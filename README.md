@@ -4,9 +4,9 @@
 
 Align 4 circles of the same color on a square board through alternating turns between red and black circles.
 
-## Wire!
-[IMG_1683](https://user-images.githubusercontent.com/98341122/152562613-de4dafdb-bc75-4924-937d-9bc114353be3.jpg)
-frame
+## Wireframe
+![IMG_1683](https://user-images.githubusercontent.com/98341122/152562823-3ee115da-fdf2-408c-b78a-d428671bc112.jpg)
+
 
 
 
