@@ -1,0 +1,31 @@
+.title {
+    text-align: center;    
+}
+
+.container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+    max-width: 400px;
+}
+
+.board {
+    background-color: beige;    
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+    border: 1px solid #2c3e50;
+}
+
+.display {
+    text-align: center;
+}
+
+#reset {
+    
+}
