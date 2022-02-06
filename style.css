@@ -1,16 +1,44 @@
+
 .title {
     text-align: center;    
 }
 
+/* scoreboard reference: free code camp Rock paper scissors */
+.scoreboard {
+    border: 3px green;
+    margin: 10px auto;
+    width: 100px;
+    font-size: 30px;
+    position: relative;
+    text-align: center;
+}
 
+.badge {
+    background-color: yellow;
+    font-size: 14px;
+}
+
+#playerOneLabel {
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+#playerTwoLabel {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
 
 .container {
     margin: 0 auto;
     /* 4x4 grid */
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 25% 25% 25% 25%; 
+    grid-template-rows: 25% 25% 25% 25%; 
     max-width: 400px;
+
+
     
 }
 
@@ -23,8 +51,47 @@
     align-items: center;
     font-size: 50px;
     cursor: pointer;
-    border: 1px solid #2c3e50;
+    border: .5px dashed grey;
+    
 }
+
+.playerOneChoice {
+    background-color: red;
+    border-radius: 50%;
+}
+
+
+.playerTwoChoice {
+    background-color: black;
+}
+
+.left {
+    border-left: 6px solid black;
+    border-right: 6px solid black;
+}
+
+
+.right{
+    border-left: 6px solid black;
+    border-right: 6px solid black;
+}
+
+.bottom{
+    border-bottom: 6px solid black;
+}
+
+.one, .five, .nine, .thirteen {
+    border-left: 6px solid black;
+}
+
+.two, .six, .ten, .fourteen {
+    border-left: 6px solid black;
+}
+
+.top {
+    border-top: none;
+}
+
 
 .playerOne {
     color: red;
@@ -38,6 +105,13 @@
     text-align: center;
 }
 
-/* #reset {
-    
-} */
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions {
+    text-align: center;
+}

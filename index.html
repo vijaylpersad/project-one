@@ -8,42 +8,53 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="title">
-        <h1>MATCH 4</h1>
-    </section>
+        <header class="title">
+            <h1>MATCH4</h1>
+        </header>
 
-    <section class="display">
-        Player <span class="display-player playerX">X</span>'s turn
-    </section>
+        <section class="scoreboard">
+            <div id="playerOneLabel" class="badge">P1</div>
+            <div id="playerTwoLabel" class="badge">P2</div>
+            <span id="playerOneScore">0</span>:<span id="playerTwoScore">0</span>
+        </section>
 
-    <section class="container">
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>
-        <div class="tile"></div>     
-    </section>
-    <br>
-    <br>
-    <section class="display announcer hide"></section>
-    <br>
-    <br>
-    
-    <section class="controls">
-        <button id="reset">Reset</button>
-    </section>  
+        <section class="display">
+            Player <span class="display-player playerX">X</span>'s turn
+        </section>
 
-    <script src="script.js"></script>
+        <section class="container">
+            <div class="tile zero left top"></div>
+            <div class="tile one top"></div>
+            <div class="tile two top"></div>
+            <div class="tile three right top"></div>
+            <div class="tile four left"></div>
+            <div class="tile five"></div>
+            <div class="tile six"></div>
+            <div class="tile seven right"></div>
+            <div class="tile eight left"></div>
+            <div class="tile nine"></div>
+            <div class="tile ten"></div>
+            <div class="tile eleven right"></div>
+            <div class="tile twelve left bottom"></div>
+            <div class="tile thirteen bottom"></div>
+            <div class="tile fourteen bottom"></div>
+            <div class="tile fifteen right bottom"></div>     
+        </section>
+
+        <br>
+        <br>
+        <section class="display announcer hide"></section>
+        <br>
+        <br>
+
+        <section class="controls">
+            <button id="reset">Reset</button>
+        </section>  
+
+        <br>
+        <section class="instructions">Click on the column you wish to drop your color piece in. Stack up 4 pieces of the same color vertically, horizontally, or diagonally to win.</section>
+
+        <script src="script.js"></script>
 </body>
+
 </html>
