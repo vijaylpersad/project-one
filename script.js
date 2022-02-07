@@ -1,14 +1,43 @@
 console.log('hello world')
 
 const tiles = Array.from(document.querySelectorAll('.tile'))
+//if playerOne.tiles === winningConditions then continue,
+
 
 let board = ['','','','','','','','','','','','','','','','']
 let playerOneScore = 0
 let playerTwoScore = 0
 const playerOneScore_span = document.querySelector('.playerOneScore')
 const playerTwoScore_span = document.querySelector('.playerTwoScore')
-const tile = document.querySelectorAll('.tile') //doesnt work if i do querySelectorAll -- event listener error
+const tile = document.querySelectorAll('.tile') //doesnt work if i do querySelectorAll -- event listener error //RESOLVED
 const div = document.querySelectorAll('.container > div')
+
+
+///PLAYER SWITCH IDEA: create a turn counter, if (turn count % 2 !== 0) add classList playerOneChoice, else add playerTwoChoice
+function playerSwitch (){
+    let turnCount = 0
+    div.forEach(div => {
+        div.addEventListener('click', event => {
+        console.log(event)
+        turnCount++
+        console.log(turnCount)
+    })})   //CONSOLE LOGS TURNS CORRECTLY 
+    // if(turnCount % 2 !==0){
+    //     div.forEach(div => {
+    //         div.addEventListener('click', event => {               
+    //             // if(div.classList !== 'playerTwoChoice')
+    //             div.classList.add('playerOneChoice')
+    //     } else {            
+    //         div.addEventListener('click', event => {               
+    //         // if(div.classList !== 'playerTwoChoice')
+    //         div.classList.add('playerTwoChoice')
+    //         } 
+    //     }
+    //     }
+    // } ///CONDITIONAL DOESNT WORK ******//////
+}
+playerSwitch()
+
 
 let playerMove = div.forEach(div => {
     div.addEventListener('click', event => {
