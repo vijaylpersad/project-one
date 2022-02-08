@@ -5,7 +5,6 @@
 }
 
 body {
-    /* background-color: blue; */
     color: red;    
 }
 
@@ -48,13 +47,18 @@ body {
     
 }
 
+.hidden {
+    background-color: rgb(0,0,0,.1);
+    border-radius: 50px;
+}
+
 .container div {    
     width: 100px;
     height: 100px;
     align-items: center;
     cursor: pointer;
-    /* border: 1px solid black; */
 }
+
 
 .playerOneChoice {
     background-color: red;
@@ -67,43 +71,12 @@ body {
     border-radius: 50px;
 }
 
-/* .left {
-    border-left: 8px solid black;
-    border-right: 8px solid black; 
-}
-
-
-.right{
-    border-left: 8px solid black;
-    border-right: 8px solid black;
-}
-
-.bottom{
-    border-bottom: 8px solid black;
-}
-
-.one, .five, .nine, .thirteen {
-    border-left: 8px solid black;
-}
-
-.two, .six, .ten, .fourteen {
-    border-left: 8px solid black;
-} 
-
-.top {
-    border-top: none;
-} */
-
-/* 
-.playerOne {
-    color: red;
-}
-
-.playerTwo {
-    color: black;
-} */
 
 .display {
+    text-align: center;
+}
+
+.announcer {
     text-align: center;
 }
 

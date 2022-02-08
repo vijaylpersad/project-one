@@ -24,3 +24,10 @@ get boardcheck function working for winning conditions
 get win announcer working
 get scoreboard working
 get reset button working
+
+2/8: to do: establish winning logic and display win
+
+completed: winning and draw logic works
+completed: win announcer works
+semi-complete: scorekeeping works except after a win--need to end game 
+incomplete: reset button
