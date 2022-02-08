@@ -27,6 +27,7 @@ const announceWinner = document.querySelector('.announcer > p')
 // const tile = document.querySelectorAll('.tile') //doesnt work if i do querySelectorAll -- event listener error //RESOLVED
 const tiles = document.querySelectorAll('.container div')
 const columnOne = document.querySelectorAll('columnOne')
+const reset = document.getElementById('reset')
 
 let currentPlayer = 1
 
@@ -79,8 +80,20 @@ for (let i=0; i < tiles.length; i++){
                 announceTurnSpan.innerText = currentPlayer
             }
         } else alert('Invalid move.') 
+
     } 
 }
+
+//reset button
+reset.onclick = () => {
+    tiles.classList.remove('playerOneChoice') //additional research needed on removing class from multiple things https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
+    tiles.classList.remove('playerTwoChoice')
+    tiles.classList.remove('taken')
+    tiles[16].classList.add('taken')
+    tiles[17].classList.add('taken')
+    tiles[18].classList.add('taken')
+    tiles[19].classList.add('taken')
+} 
 //in console we see that column effect works, however style doesnt apply properly, buttons clicked again will add other player choice 
 //https://www.freecodecamp.org/news/learn-javascript-by-building-7-games-video-course/
 
