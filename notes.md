@@ -29,5 +29,8 @@ get reset button working
 
 completed: winning and draw logic works
 completed: win announcer works
-semi-complete: scorekeeping works except after a win--need to end game 
-incomplete: reset button
+semi-complete: scorekeeping works except after a win--need to end game -- still doesnt work (evening log)
+incomplete: reset button --COMPLETE (evening log)
+
+2/9: todo
+figure out how to end game properly 

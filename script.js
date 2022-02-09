@@ -9,6 +9,7 @@ console.log('hello world')
 let playerOneScore = 0
 let playerTwoScore = 0
 let turnCount = 0 //initial state
+
 const playerOneScore_span = document.querySelector('#playerOneScore')
 const playerTwoScore_span = document.querySelector('#playerTwoScore')
 const announceTurnSpan = document.querySelector('.announceTurn') 
@@ -36,15 +37,20 @@ const winningConditions = [
     [3,6,9,12]
 ];
 
+
+
+
+
+
+//CHECK FOR WINNER
 function boardCheck() {
     for (let x = 0; x<winningConditions.length; x++){   //for each array in the winning conditions array
-        const tile1 = tiles[winningConditions[x][0]] //going into "tiles" variable's generated array based on player inputs, and passing through each individual index of each winningConditions arrays   
-        const tile2 = tiles[winningConditions[x][1]] ////https://www.freecodecamp.org/news/learn-javascript-by-building-7-games-video-course/
-        const tile3 = tiles[winningConditions[x][2]]
-        const tile4 = tiles[winningConditions[x][3]]
-//compare each of the tile indices to winning indices
+        const tile1 = tiles[winningConditions[x][0]]    
+        const tile2 = tiles[winningConditions[x][1]] //get the [1] index value of all winning arrays and set that as variable tile2 /https://www.freecodecamp.org/news/learn-javascript-by-building-7-games-video-course/
+        const tile3 = tiles[winningConditions[x][2]]    
+        const tile4 = tiles[winningConditions[x][3]] 
             if (
-            // check tiles to see if class is playerone or two
+            // check tileX variables to see if all connected classList contains playerone or two === win
             tile1.classList.contains('playerOneChoice') && //we're taking these user gamebooard inputs, broken down into winningConditions arrays, and seeing if any of the arrays all have a classList of playerOneChoice or playerTwoChoice to declare winner
             tile2.classList.contains('playerOneChoice') &&
             tile3.classList.contains('playerOneChoice') &&
@@ -54,7 +60,12 @@ function boardCheck() {
                 announceWinner.innerText = "Player One (Red) Wins!"
                 playerOneScore++
                 playerOneScore_span.innerText = playerOneScore
-      
+                for (i = 0; i < tiles.length; i++){
+                    tiles[i].classList.add('taken')
+                }
+           
+              
+
             }
         
             if (
@@ -65,37 +76,41 @@ function boardCheck() {
             )
             {
                 announceWinner.innerText = "Player Two (Black) Wins!"
-                playerTwoScore++
-                playerTwoScore_span.innerText = playerTwoScore
-       
+                playerTwoScore++ //add to player two score
+                playerTwoScore_span.innerText = playerTwoScore //set updated score to span innertext
+                for (i = 0; i < tiles.length; i++){
+                    tiles[i].classList.add('taken')
+
+                }
+               
+
             }
             //else after all tiles are clicked, announceWinner.innerText = "draw"
             if(turnCount >= 16)
             {
-                announceWinner.innerText = "Draw" 
+                announceWinner.innerText = "Draw!" 
+                for (i = 0; i < tiles.length; i++){
+                    tiles[i].classList.add('taken')
+                }
+                
+                
             }
 
-            // if(announceWinner.innerText != ''){
-            //     console.log('the game is over')
-            //     for (let i=0; i < tiles.length; i++){
-            //         tiles[i].onclick = () => {
-            //             alert('The game is over. Click Reset to continue.') //https://stackoverflow.com/questions/20224394/tic-tac-toe-javascript-stop-switching-turns-after-winner-has-been-announced
-            //         }
-            //     }
-            // }
+ 
     }
+
+
     
 
 }
 
-// function endGame() {
-//     if(announceWinner.innerText !== ''){
-//         break boardCheck
-//     }
-// }
 
 
 
+
+
+
+//BOARD CLICK FUNCTION//COLUMN RULES
 ////https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 for (let i=0; i < tiles.length; i++){
     tiles[i].onclick = () => {
@@ -105,26 +120,33 @@ for (let i=0; i < tiles.length; i++){
         {
             if (currentPlayer == 1) {
                 tiles[i].classList.add('taken')   //will make that div invalid 
-                tiles[i].classList.add('playerOneChoice') //add red piece 
+                tiles[i].classList.add('playerOneChoice') //add red piece
+                turnCount++ 
+                boardCheck()
                 //change player
                 currentPlayer = '2' //change player
                 announceTurnSpan.innerText = currentPlayer
-                turnCount++ //add to turnCount value used for measuring a draw 
+                // turnCount++ //add to turnCount value used for measuring a draw 
                 // console.log(turnCount)
             } else if (currentPlayer == 2) {
                 tiles[i].classList.add('taken')
                 tiles[i].classList.add('playerTwoChoice')
+                turnCount++
+                boardCheck()
                 //change player
                 currentPlayer = '1'
                 announceTurnSpan.innerText = currentPlayer
-                turnCount++
+                
                 // console.log(turnCount)
             }
         } else alert('Invalid move.') 
         
-        boardCheck()
+
     } 
+
+
 }
+
 
 
 
@@ -139,32 +161,16 @@ reset.onclick = () => {
     currentPlayer = '1'
     announceWinner.innerText = ''
     turnCount = 0
-
+    isGameActive = true
     bot1.classList.add('taken','hidden')
     bot2.classList.add('taken', 'hidden')
     bot3.classList.add('taken', 'hidden')
     bot4.classList.add('taken', 'hidden')
-    //add class 'taken' back to ids representing board guide & column rules 
+    //add class 'taken' back to ids representing board guide & column rules
+    
 } 
 
 
-
-if(announceWinner.innerText != ''){
-    console.log('the game is over')
-    for (let i=0; i < tiles.length; i++){
-        tiles[i].onclick = () => {
-            alert('The game is over. Click Reset to continue.') //https://stackoverflow.com/questions/20224394/tic-tac-toe-javascript-stop-switching-turns-after-winner-has-been-announced
-        }
-    }
-}
-
-
-
-
-
-
-
-//https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 
 
 
