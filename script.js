@@ -1,7 +1,5 @@
 console.log('hello world')
 
-// let board = ['','','','','','','','','','','','','','','','']
-
 ///gameboard:
 //Column 1 [0, 4, 8, 12]
 //Column 2 [1, 5, 9, 13]
@@ -15,10 +13,13 @@ const playerOneScore_span = document.querySelector('#playerOneScore')
 const playerTwoScore_span = document.querySelector('#playerTwoScore')
 const announceTurnSpan = document.querySelector('.announceTurn') 
 const announceWinner = document.querySelector('.announcer')
-// const tile = document.querySelectorAll('.tile') //doesnt work if i do querySelectorAll -- event listener error //RESOLVED
-const tiles = document.querySelectorAll('.container div')
-const columnOne = document.querySelectorAll('columnOne')
+const tiles = document.querySelectorAll('.container div') //refers to a an array of nodes essentially 
 const reset = document.getElementById('reset')
+const grid = document.getElementById('grid')
+const bot1 = document.getElementById('bot1')  
+const bot2 = document.getElementById('bot2')
+const bot3 = document.getElementById('bot3')
+const bot4 = document.getElementById('bot4')
 
 let currentPlayer = 1
 
@@ -38,7 +39,7 @@ const winningConditions = [
 function boardCheck() {
     for (let x = 0; x<winningConditions.length; x++){   //for each array in the winning conditions array
         const tile1 = tiles[winningConditions[x][0]] //going into "tiles" variable's generated array based on player inputs, and passing through each individual index of each winningConditions arrays   
-        const tile2 = tiles[winningConditions[x][1]]
+        const tile2 = tiles[winningConditions[x][1]] ////https://www.freecodecamp.org/news/learn-javascript-by-building-7-games-video-course/
         const tile3 = tiles[winningConditions[x][2]]
         const tile4 = tiles[winningConditions[x][3]]
 //compare each of the tile indices to winning indices
@@ -50,12 +51,10 @@ function boardCheck() {
             tile4.classList.contains('playerOneChoice')
             )
             {
-                announceWinner.innerText = "Player One Wins!"
+                announceWinner.innerText = "Player One (Red) Wins!"
                 playerOneScore++
                 playerOneScore_span.innerText = playerOneScore
-                // if (announceWinner.innerText = "Player One Wins!"){
-                //     break boardCheck
-                // }
+      
             }
         
             if (
@@ -65,19 +64,25 @@ function boardCheck() {
             tile4.classList.contains('playerTwoChoice')
             )
             {
-                announceWinner.innerText = "Player Two Wins!"
+                announceWinner.innerText = "Player Two (Black) Wins!"
                 playerTwoScore++
                 playerTwoScore_span.innerText = playerTwoScore
-                // if (announceWinner.innerText = "Player One Wins!"){
-                //     break boardCheck
-                // }
-                
+       
             }
             //else after all tiles are clicked, announceWinner.innerText = "draw"
             if(turnCount >= 16)
             {
                 announceWinner.innerText = "Draw" 
             }
+
+            // if(announceWinner.innerText != ''){
+            //     console.log('the game is over')
+            //     for (let i=0; i < tiles.length; i++){
+            //         tiles[i].onclick = () => {
+            //             alert('The game is over. Click Reset to continue.') //https://stackoverflow.com/questions/20224394/tic-tac-toe-javascript-stop-switching-turns-after-winner-has-been-announced
+            //         }
+            //     }
+            // }
     }
     
 
@@ -89,6 +94,9 @@ function boardCheck() {
 //     }
 // }
 
+
+
+////https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 for (let i=0; i < tiles.length; i++){
     tiles[i].onclick = () => {
         //only if square below your current square is taken, and current doesnt already have class of taken can you go here
@@ -96,13 +104,13 @@ for (let i=0; i < tiles.length; i++){
         
         {
             if (currentPlayer == 1) {
-                tiles[i].classList.add('taken')   
-                tiles[i].classList.add('playerOneChoice')
+                tiles[i].classList.add('taken')   //will make that div invalid 
+                tiles[i].classList.add('playerOneChoice') //add red piece 
                 //change player
-                currentPlayer = '2'
+                currentPlayer = '2' //change player
                 announceTurnSpan.innerText = currentPlayer
-                turnCount++
-                console.log(turnCount)
+                turnCount++ //add to turnCount value used for measuring a draw 
+                // console.log(turnCount)
             } else if (currentPlayer == 2) {
                 tiles[i].classList.add('taken')
                 tiles[i].classList.add('playerTwoChoice')
@@ -110,11 +118,11 @@ for (let i=0; i < tiles.length; i++){
                 currentPlayer = '1'
                 announceTurnSpan.innerText = currentPlayer
                 turnCount++
-                console.log(turnCount)
+                // console.log(turnCount)
             }
         } else alert('Invalid move.') 
+        
         boardCheck()
-        // endGame()
     } 
 }
 
@@ -122,27 +130,33 @@ for (let i=0; i < tiles.length; i++){
 
 //reset button
 reset.onclick = () => {
-    tiles.classList.remove('playerOneChoice') //additional research needed on removing class from multiple things https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
-    tiles.classList.remove('playerTwoChoice')
-    tiles.classList.remove('taken')
-    tiles[16].classList.add('taken')
-    tiles[17].classList.add('taken')
-    tiles[18].classList.add('taken')
-    tiles[19].classList.add('taken')
+
+        [].forEach.call(tiles, function(el){
+        el.className = ''
+        })
+     //additional research needed on removing class from multiple things https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
+    //https://stackoverflow.com/questions/15040297/clear-element-classlist
+    currentPlayer = '1'
+    announceWinner.innerText = ''
+    turnCount = 0
+
+    bot1.classList.add('taken','hidden')
+    bot2.classList.add('taken', 'hidden')
+    bot3.classList.add('taken', 'hidden')
+    bot4.classList.add('taken', 'hidden')
+    //add class 'taken' back to ids representing board guide & column rules 
 } 
-//in console we see that column effect works, however style doesnt apply properly, buttons clicked again will add other player choice 
-//https://www.freecodecamp.org/news/learn-javascript-by-building-7-games-video-course/
-
-//still need a win check and announcement function
-
-
-//need a win/score count function
-
-
-//need to remove all classList on reset button click
 
 
 
+if(announceWinner.innerText != ''){
+    console.log('the game is over')
+    for (let i=0; i < tiles.length; i++){
+        tiles[i].onclick = () => {
+            alert('The game is over. Click Reset to continue.') //https://stackoverflow.com/questions/20224394/tic-tac-toe-javascript-stop-switching-turns-after-winner-has-been-announced
+        }
+    }
+}
 
 
 
@@ -150,96 +164,8 @@ reset.onclick = () => {
 
 
 
-
-
-
-
-//OVERARCHING ISSUE-- == breaks button display
-
-///PLAYER SWITCH IDEA: create a turn counter, if (turn count % 2 !== 0) add classList playerOneChoice, else add playerTwoChoice
-// function playerSwitch (){
-    
-//     div.forEach(div => {
-//         div.addEventListener('click', event => {
-//         console.log(event)
-//         if(div.classList = 'playerOneChoice' || 'playerTwoChoice'){
-//             turnCount = turnCount
-//         } else if(div.classList != 'playerOneChoice' || 'playerTwoChoice'){
-//             turnCount++
-//         }
-//         console.log(turnCount)
-//     })})   //CONSOLE LOGS TURNS CORRECTLY --conditionals break it 
-    // if(turnCount % 2 !==0){
-    //     div.forEach(div => {
-    //         div.addEventListener('click', event => {               
-    //             // if(div.classList !== 'playerTwoChoice')
-    //             div.classList.add('playerOneChoice')
-    //     } else {            
-    //         div.addEventListener('click', event => {               
-    //         // if(div.classList !== 'playerTwoChoice')
-    //         div.classList.add('playerTwoChoice')
-    //         } 
-    //     }
-    //     }
-    // } ///CONDITIONAL DOESNT WORK ******//////
-// }
-// playerSwitch()
-
-//ORIGINAL PLAYER BUTTON REVEAL FUNCTION THAT WORKS:
-// let playerMove = div.forEach(div => {
-//     div.addEventListener('click', event => {
-//         console.log(event)
-
-//         // if(div.classList !== 'playerTwoChoice')
-//         div.classList.add('playerOneChoice')
-    
-//     // individual column click conditional function 
-//         //if 0 4 8 12 are clicked, if 12 is empty, add classList to 12. if 12classList =${playerOneChoice OR playerTwoChoice}, move on
-//         //if 8 isnt filled add classlist, else move on, if 4 isnt filled add classlist, else add classlist to 0 
-//         //ALTERNATE IDEA: create column classes. add event listener on column class, click, if (twelve.classList != playerxchoice){twelve.classList.add('playerxchoice')} else if ,
-    
-        
-//     })
-// })
 //https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 
-//columnOne stacking function 
-// function columnOneStack(){
-//     columnOne.addEventListener('click', event => {  //error in console says columnone.addeventlisterner is not a function...might need to use a forEach
-//         Array.from(columnOne)
-//         if(columnOne[1].classList = 'playerOneChoice' || 'playerTwoChoice'){
-//             columnOne[0].classList.add('playerOneChoice')
-//         } else
-//         if(columnOne[2].classList = 'playerOneChoice' || 'playerTwoChoice'){
-//             columnOne[1].classList.add('playerOneChoice')
-//         } else
-//         if(columnOne[3].classList = 'playerOneChoice' || 'playerTwoChoice'){
-//             columnOne[2].classList.add('playerOneChoice')
-//         } else
-//         if(columnOne[3].classList != 'playerOneChoice' || 'playerTwoChoice'){
-//             columnOne[3].classList.add('playerOneChoice')
-//         } 
-//     })
-// }
-// columnOneStack()
 
 
 
-//function to occur on event of click on tile:
-
-// function playerMove() {
-//     if(div.classList !== 'playerOneChoice') {
-//         div.classList.add('playerOneChoice')
-//     }
-//     console.log('clicked')
-// }
-
-// tile.addEventListener('click', playerMove) 
-
-// when you click on each square, a function should check if the bottom square in that column isnt displaying none. if it isnt displaying nothing, check the square above it, if it isnt displaying nothing, check above, if it is displaying nothing, fill with playerTurnColorCLass, log value in playerColorClass array
-//and check for winner: does current array(s) match winning combos, if yes announce winner, if no playerSwitch(), repeat the game loop  
-
-
-
-
-//2/7:
