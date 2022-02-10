@@ -13,16 +13,28 @@ Tech stack = HTML5, CSS, Javascript
 
 
 ## MVP
-- 10 winning combinations, or if 16 turns pass, tie
-- Reset board button
-- Turn switch display
-- Display win/loss/draw
-- Piece color change by turn
-- Scorekeeping
+- 10 winning combinations, else if 16 turns pass, draw  - complete
+- Reset board button - complete
+- Turn switch display - complete
+- Display winner/draw - complete
+- Piece color change by turn -complete
+- Scorekeeping - complete
 
 ## Stretch Goals
 - Authentic gameboard appearance
 - Music
 - Styled text and background
+
+## References
+Scoreboard design and array methods:
+https://www.freecodecamp.org/news/learn-javascript-by-building-7-games-video-course/
+
+
+Column rules, player switching, reset function:
+https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+
+https://stackoverflow.com/questions/15040297/clear-element-classlist
+
+https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
 
 

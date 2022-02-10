@@ -53,11 +53,6 @@ const winningConditions = [
     [3,6,9,12]
 ];
 
-
-
-
-
-
 //CHECK FOR WINNER
 function boardCheck() {
     for (let x = 0; x<winningConditions.length; x++){   //for each array in the winning conditions array
@@ -73,7 +68,7 @@ function boardCheck() {
             tile4.classList.contains('playerOneChoice')
             )
             {
-                announceWinner.innerText = "Player One (Red) Wins!"
+                announceWinner.innerText = "Player One (Red) Wins!" //if winner declared, add score, give all tiles class of taken to end game
                 playerOneScore++
                 playerOneScore_span.innerText = playerOneScore
                 for (i = 0; i < tiles.length; i++){
@@ -111,18 +106,8 @@ function boardCheck() {
                 
                 
             }
-
- 
     }
-
-
-    
-
 }
-
-
-
-
 
 
 
@@ -156,11 +141,7 @@ for (let i=0; i < tiles.length; i++){
                 // console.log(turnCount)
             }
         } else alert('Invalid move.') 
-        
-
     } 
-
-
 }
 
 
@@ -168,13 +149,13 @@ for (let i=0; i < tiles.length; i++){
 
 //reset button
 reset.onclick = () => {
-
         [].forEach.call(tiles, function(el){
         el.className = ''
         })
-     //additional research needed on removing class from multiple things https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
+     //https://stackoverflow.com/questions/23565551/javascript-add-remove-a-single-class-on-multiple-elements
     //https://stackoverflow.com/questions/15040297/clear-element-classlist
     currentPlayer = '1'
+    announceTurnSpan.innerText = currentPlayer
     announceWinner.innerText = ''
     turnCount = 0
     isGameActive = true
@@ -199,6 +180,7 @@ reset.onclick = () => {
     fourteen.classList.add('hidden')
     fifteen.classList.add('hidden')
     sixteen.classList.add('hidden')
+    //add grey circles in board for guidance
 } 
 
 

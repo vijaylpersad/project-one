@@ -1,38 +1,48 @@
 
 .title {
     text-align: center;
+    font-size: 40px
     
 }
 
 body {
-    color: red;    
+    color: red;
+    background-color: blue;
+    /* font-family: 'Montserrat', sans-serif;
+    font-family: 'Press Start 2P', cursive;     */
+    font-family: 'Bangers', cursive;
 }
 
 /* scoreboard reference: free code camp Rock paper scissors */
 .scoreboard {
     border: 3px green;
-    margin: 10px auto;
-    width: 100px;
+    margin: 0 auto 10px auto;
+    width: 120px;
     font-size: 30px;
     position: relative;
     text-align: center;
+    border: 2px solid black;
 }
 
 .badge {
-    background-color: yellow;
+    /* background-color: yellow; */
     font-size: 14px;
 }
 
 #playerOneLabel {
     position: absolute;
-    top: 10px;
+    top: 4px;
     left: 0;
+    font-size: 25px;
+    padding-left: 5px;
 }
 
 #playerTwoLabel {
     position: absolute;
-    top: 10px;
+    top: 4px;
     right: 0;
+    font-size: 25px;
+    padding-right: 5px;  
 }
 
 .container {
@@ -42,13 +52,14 @@ body {
     flex-wrap: wrap;
     max-width: 400px;
     max-height: 400px;
-    border: 1px solid black;
-
+    border: 8px solid black;
+    border-radius: 5px;
+    background-color: yellow;
     
 }
 
 .hidden {
-    background-color: rgb(0,0,0,.1);
+    background-color: rgb(1,1,1,.1);
     border-radius: 50px;
 }
 
