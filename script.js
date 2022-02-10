@@ -21,6 +21,22 @@ const bot1 = document.getElementById('bot1')
 const bot2 = document.getElementById('bot2')
 const bot3 = document.getElementById('bot3')
 const bot4 = document.getElementById('bot4')
+const one = document.getElementById('1')
+const two = document.getElementById('2')
+const three = document.getElementById('3')
+const four = document.getElementById('4')
+const five = document.getElementById('5')
+const six = document.getElementById('6')
+const seven = document.getElementById('7')
+const eight = document.getElementById('8')
+const nine = document.getElementById('9')
+const ten = document.getElementById('10')
+const eleven = document.getElementById('11')
+const twelve = document.getElementById('12')
+const thirteen = document.getElementById('13')
+const fourteen = document.getElementById('14')
+const fifteen = document.getElementById('15')
+const sixteen = document.getElementById('16')
 
 let currentPlayer = 1
 
@@ -162,12 +178,27 @@ reset.onclick = () => {
     announceWinner.innerText = ''
     turnCount = 0
     isGameActive = true
-    bot1.classList.add('taken','hidden')
-    bot2.classList.add('taken', 'hidden')
-    bot3.classList.add('taken', 'hidden')
-    bot4.classList.add('taken', 'hidden')
+    bot1.classList.add('taken')
+    bot2.classList.add('taken')
+    bot3.classList.add('taken')
+    bot4.classList.add('taken')
     //add class 'taken' back to ids representing board guide & column rules
-    
+    one.classList.add('hidden')
+    two.classList.add('hidden')
+    three.classList.add('hidden')
+    four.classList.add('hidden')
+    five.classList.add('hidden')
+    six.classList.add('hidden')
+    seven.classList.add('hidden')
+    eight.classList.add('hidden')
+    nine.classList.add('hidden')
+    ten.classList.add('hidden')
+    eleven.classList.add('hidden')
+    twelve.classList.add('hidden')
+    thirteen.classList.add('hidden')
+    fourteen.classList.add('hidden')
+    fifteen.classList.add('hidden')
+    sixteen.classList.add('hidden')
 } 
 
 
