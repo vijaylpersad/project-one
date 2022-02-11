@@ -158,7 +158,6 @@ reset.onclick = () => {
     announceTurnSpan.innerText = currentPlayer
     announceWinner.innerText = ''
     turnCount = 0
-    isGameActive = true
     bot1.classList.add('taken')
     bot2.classList.add('taken')
     bot3.classList.add('taken')
