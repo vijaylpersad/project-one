@@ -68,7 +68,7 @@ function boardCheck() {
             tile4.classList.contains('playerOneChoice')
             )
             {
-                announceWinner.innerText = "Player One (Red) Wins!" //if winner declared, add score, give all tiles class of taken to end game
+                announceWinner.innerText = "Player One (Red) Wins! Click Reset." //if winner declared, add score, give all tiles class of taken to end game
                 playerOneScore++
                 playerOneScore_span.innerText = playerOneScore
                 for (i = 0; i < tiles.length; i++){
@@ -86,7 +86,7 @@ function boardCheck() {
             tile4.classList.contains('playerTwoChoice')
             )
             {
-                announceWinner.innerText = "Player Two (Black) Wins!"
+                announceWinner.innerText = "Player Two (Black) Wins! Click Reset."
                 playerTwoScore++ //add to player two score
                 playerTwoScore_span.innerText = playerTwoScore //set updated score to span innertext
                 for (i = 0; i < tiles.length; i++){
@@ -99,7 +99,7 @@ function boardCheck() {
             //else after all tiles are clicked, announceWinner.innerText = "draw"
             if(turnCount >= 16)
             {
-                announceWinner.innerText = "Draw!" 
+                announceWinner.innerText = "Draw! Click Reset." 
                 for (i = 0; i < tiles.length; i++){
                     tiles[i].classList.add('taken')
                 }
@@ -140,7 +140,7 @@ for (let i=0; i < tiles.length; i++){
                 
                 // console.log(turnCount)
             }
-        } else alert('Invalid move.') 
+        } 
     } 
 }
 

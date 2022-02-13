@@ -1,8 +1,12 @@
 # Match4
 
+## Play
+
+https://vijaylpersad.github.io/project-one/
+
 ## Overview
 
-Align 4 circles of the same color on a square board through alternating turns between red and black circles.
+Choose a circle at the bottom of the square board you wish to start stacking your color chip (P1=Red P2=Black). Stack up 4 pieces of the same color vertically, horizontally, or diagonally to win. You may stack on top of your opponent to gain the upperhand!
 
 ## Wireframe
 Tech stack = HTML5, CSS, Javascript
