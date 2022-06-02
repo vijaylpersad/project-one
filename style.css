@@ -99,3 +99,32 @@ body {
 .instructions {
     text-align: center;
 }
+
+@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 812px) {
+    .container {
+        margin: 0 auto;
+        /* 4x4 grid */
+        display: flex;
+        flex-wrap: wrap; /*makes the divs line up inside container*/
+        max-width: 360px;
+        max-height: 360px;
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: yellow;
+        
+    }
+    
+    .hidden {
+        background-color: rgb(1,1,1,.1);
+        border-radius: 50px;
+    }
+    
+    .container div {    
+        width: 88px;
+        height: 88px; /*makes 4x4 grid inside container*/
+        align-items: center;
+        cursor: pointer;
+    }
+}
