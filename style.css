@@ -127,4 +127,15 @@ and (max-device-width: 812px) {
         align-items: center;
         cursor: pointer;
     }
+
+    .playerOneChoice {
+        background-color: red;
+        border-radius: 50px;
+    }
+    
+    
+    .playerTwoChoice {
+        background-color: black;
+        border-radius: 50px;
+    }
 }
